@@ -28,7 +28,7 @@ namespace RockPaperScissors
         public MainWindow()
         {
             InitializeComponent();
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 5);
+            timer.Interval = new TimeSpan(0, 0, 0, 1);
             timer.Tick += new EventHandler(generate);
         }
 
@@ -36,7 +36,7 @@ namespace RockPaperScissors
         {
             Rps1.hod();
             Rps2.hod();
-            player1.Text = Rps1.hodPick.ToString();
+            player1.Text = Rps1.hodPick.ToString(); //nefunguje
             player2.Text = Rps2.hodPick.ToString();
             player1Mon.Text = Rps1.money.ToString();
             player2Mon.Text = Rps2.money.ToString();
