@@ -1,0 +1,18 @@
+﻿<Window x:Class="RockPaperScissors.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RockPaperScissors"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock Name="player1" HorizontalAlignment="Left" Margin="37,39,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="142"/>
+        <TextBlock Name="player2" HorizontalAlignment="Left" Margin="533,39,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="180"/>
+        <TextBlock x:Name="player1Mon" HorizontalAlignment="Left" Margin="37,74,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="142"/>
+        <TextBlock x:Name="player2Mon" HorizontalAlignment="Left" Margin="533,76,0,0" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="30" Width="142"/>
+        <Button Content="start" HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Height="101" Width="236" Click="Button_Click"/>
+
+
+    </Grid>
+</Window>
