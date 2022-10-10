@@ -15,13 +15,13 @@ namespace RockPaperScissors
         public player Player2 { get; }
 
         public event Action FightFinished;
-
+        
         public game(int money)
         {
             Player1 = new player(money);
             Player2 = new player(money);
             timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 0, 0, 10);
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 1);
             timer.Tick += generate;
         }
         public void generate(object sender, EventArgs e)
@@ -75,16 +75,12 @@ namespace RockPaperScissors
             FightFinished?.Invoke();
         }
         public void start()
-        {
-            
+        {         
             timer.Start();
-            
-
         }
         public void stop()
         {
             timer.Stop();
         }
-
     }
 }

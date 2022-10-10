@@ -23,13 +23,13 @@ namespace RockPaperScissors
     public partial class MainWindow : Window
     {
         private game Game;
-  
+        public int cislo = 10;
         public MainWindow()
         {
             InitializeComponent();
-            Game = new game(10);
+            Game = new game(cislo);
             Game.FightFinished += Game_FightFinished;
-            
+
         }
 
         private void Game_FightFinished()
@@ -43,24 +43,52 @@ namespace RockPaperScissors
             {
                 player1.Text = "prohral";
                 Game.stop();
-            }else if (Game.Player2.Money == 0)
+            } else if (Game.Player2.Money == 0)
             {
                 player2.Text = "prohral";
                 Game.stop();
+            }
+            if (Game.Player1.Money == cislo * 2)
+            {
+                player1.Text = "Vyhral jak sviň";
+                MessageBoxResult result = MessageBox.Show("player1 vítěz", "chcete pokračovat", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                if (result == MessageBoxResult.OK)
+                {
+                    closeTab();
+                    
+                }
+            }
+            else if (Game.Player2.Money == cislo * 2)
+            {
+
+                player2.Text = "Vyhral jak sviň";
+                MessageBoxResult result = MessageBox.Show("player2 vítěz","chcete pokračovat",MessageBoxButton.OKCancel,MessageBoxImage.Question);
+                if (result == MessageBoxResult.OK)
+                {
+                    closeTab();
+                }
+
+
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Game.start();
-            if (Game.Player1.Money == 0  || Game.Player2.Money == 0)
+            if (Game.Player1.Money == 0 || Game.Player2.Money == 0)
             {
-                MainWindow m = new MainWindow();
-                m.Show();
-                Close();
-                
+                closeTab();
             }
-            
+
         }
+
+        public void closeTab()
+        {
+            Game.Player1.Money = 0;
+            Game.Player2.Money = 0;
+            MainWindow m = new MainWindow();
+            m.Show();
+            Close();
+        }        
     }
 }
